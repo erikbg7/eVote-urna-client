@@ -1,0 +1,8 @@
+<div>
+  <h4>{{table.tableId}}</h4>
+  <div *ngFor="let candidate of table.candidates;let i = index">
+    <input type="radio" name="group1" value="{{i}}" (click)="selectCandidate(i)"> {{candidate}}
+  </div>
+  <input type="file" id="file" (change)="loadCertificate($event)"><br>
+  <button (click)="sendVote()">Send Vote</button>
+</div>

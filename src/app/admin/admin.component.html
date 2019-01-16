@@ -1,0 +1,12 @@
+<div>
+  <button (click)="showNewTableComp()">New Table</button>
+  <app-new-table *ngIf="newTableCompBool" (addedTable)="addedTable()" [tables]="tables"></app-new-table>
+  <div>
+    <h2>Tables</h2>
+    <button (click)="updateTables()">Update</button>
+    <div *ngFor="let table of tables;let i = index" (click)="selectTable(i)">
+      <h4 *ngIf="selectedTableIndex!==i">{{table.tableId}}</h4>
+      <app-table [table]="table" *ngIf="selectedTableIndex===i"></app-table>
+    </div>
+  </div>
+</div>

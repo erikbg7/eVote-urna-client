@@ -1,0 +1,7 @@
+<div>
+  <h2>Tables</h2>
+  <div *ngFor="let table of tables;let i = index" (click)="selectTable(i)">
+      <h4 *ngIf="selectedTableIndex!==i">{{table.tableId}}</h4>
+      <app-user-table [table]="table" *ngIf="selectedTableIndex===i"></app-user-table>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div>
+  <h4>{{table.tableId}}</h4>
+  <li *ngFor="let candidate of table.candidates">{{candidate}}</li>
+  state:{{stateToString(table.state)}}
+  <div *ngIf="table.state===0">
+    <h5>Split Menu</h5>
+    parts: <input type="number" placeholder="parts" step="1" min="2" [(ngModel)]="parts"><br>
+    threshold: <input type="number" step="1" min="2" [(ngModel)]="threshold"><br>
+    <button (click)="splitKey()">Split Private Table Key</button>
+  </div>
+  <div *ngIf="table.state===1||table.state===2">
+    <h5>Private Key Part Menu</h5>
+    <button (click)="getKeyPart()">Get Private Key Part</button>
+  </div>
+  <div *ngIf="table.state===3">
+    <h5>Voting Menu</h5>
+    <button (click)="startVoting()">Start Voting</button>
+  </div>
+  <div *ngIf="table.state===4">
+    <h5>Voting Menu</h5>
+    <button (click)="stopVoting()">Stop Voting</button>
+  </div>
+  <div *ngIf="table.state===5">
+    <h5>Private Key Part Menu</h5>
+    <input type="file" id="file" (change)="loadPart($event)"><br>
+    <button (click)="pushPart()">Push Private Key Part</button>
+  </div>
+  <div *ngIf="table.state===6">
+    <h5>Private Key Part Menu</h5>
+    <button (click)="recoverKey()">Recover Key</button>
+  </div>
+  <div *ngIf="table.state===7||table.state===8">
+    <h5>Results</h5>
+    <button (click)="getResult()">Results</button>
+    <li *ngFor="let result of results;let i = index">{{table.candidates[i]}}: {{result}} </li>
+  </div>
+</div>

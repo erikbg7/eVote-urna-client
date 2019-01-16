@@ -1,0 +1,13 @@
+<div>
+  <h3>New Table</h3>
+  <h4>TableId</h4>
+  <input type="text" id="tableId" [(ngModel)]="table.tableId"><br><br>
+  <h4>Candidates</h4>
+  number <input type="number" step="1" min="0" id="tableId" [(ngModel)]="table.candidates.length"><br>
+  <div *ngFor="let candidate of table.candidates;let i = index">
+      candidate {{i}}<input  type="text" id="tableId" [(ngModel)]="candidate" (change)="setCandidate(candidate,i)"><br>
+  </div>
+  <h4>Elections Key</h4>
+  <input type="file" id="file" (change)="loadElectionKey($event)"><br><br>
+  <button (click)="sendTable()">Send</button>
+</div>
